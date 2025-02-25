@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.13/cropper.min.css" />
+    <title>Image Editor</title>
+</head>
+
+<body>
+    <div class="editor">
+        <div class="toolbar">
+            <div class="toolbar_item file-upload">
+                <label for="fileInput" class="custom-file-upload">Select Image</label>
+                <input type="file" id="fileInput" style="display: none;" />
+            </div>
+            <div class="toolbar_item controls">
+                <button onclick="resetSettingAll()">Reset</button>
+                <button id="cropBtn">Crop</button>
+                <button id="doneBtn" style="display: none;">Done</button>
+            </div>
+            <div class="toolbar_item slider-group">
+
+                <label class="toolbar-label" for="brightness">Brightness</label>
+                <div class="slider-container">
+                    <div class="value-display" id="brightnessValue">100</div>
+                    <input class="toolbar-input" type="range" id="brightness" min="0" max="200" value="100" />
+                </div>
+
+                <label class="toolbar-label" for="contrast">Contrast</label>
+                <div class="slider-container">
+                    <div class="value-display" id="contrastValue">100</div>
+                    <input class="toolbar-input" type="range" id="contrast" min="0" max="200" value="100" />
+                </div>
+
+                <label class="toolbar-label" for="saturation">Saturation</label>
+                <div class="slider-container">
+                    <div class="value-display" id="saturationValue">100</div>
+                    <input class="toolbar-input" type="range" id="saturation" min="0" max="200" value="100" />
+                </div>
+
+                <label class="toolbar-label" for="blur">Blur</label>
+                <div class="slider-container">
+                    <div class="value-display" id="blurValue">0</div>
+                    <input class="toolbar-input" type="range" id="blur" min="0" max="10" value="0" />
+                </div>
+
+                <label class="toolbar-label" for="inversion">Inversion</label>
+                <div class="slider-container">
+                    <div class="value-display" id="inversionValue">0</div>
+                    <input class="toolbar-input" type="range" id="inversion" min="0" max="200" value="0" />
+                </div>
+
+            </div>
+            <div class="toolbar_item save-btn-container">
+                <button id="saveBtn">Save</button>
+            </div>
+        </div>
+        <div class="imageArea">
+            <canvas id="canvas"></canvas>
+            <img id="cropImageElement" style="display:none;" />
+        </div>
+    </div>
+
+    <div id="saveModal" class="modal">
+        <div class="modal-content">
+            <div class="modal_menu">
+                <h3>Choose Image Format</h3>
+                <h1 onclick="closeModal()">x</h1>
+            </div>
+            <select id="formatSelect">
+                <option value="png">PNG</option>
+                <option value="jpeg">JPEG</option>
+                <option value="jpg">JPG</option>
+            </select>
+            <button id="downloadBtn">Download</button>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.13/cropper.min.js"></script>
+    <script src="app.js"></script>
+</body>
+
+</html>
