@@ -8,92 +8,23 @@
 .editor {
     display: flex;
     height: 100vh;
-    width: 100vw;
     background: linear-gradient(135deg, #ece9e6, #ffffff);
 }
 
 .toolbar {
-    width: 250px;
-    background: #2c3e50;
+    width: 300px;
+    background: #1b3f63;
     color: #ecf0f1;
     padding: 20px;
     display: flex;
     flex-direction: column;
     gap: 20px;
     box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    overflow: auto;
 }
 
-.toolbar_item.file-upload {
+.file-upload {
     text-align: center;
-}
-
-.toolbar_item.controls {
-    display: flex;
-    justify-content: space-between;
-}
-
-.toolbar_item.slider-group {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-}
-
-.toolbar_item.save-btn-container {
-    text-align: center;
-    margin-top: 10px;
-}
-
-.toolbar-label {
-    font-size: 16px;
-    margin-bottom: 5px;
-}
-
-.slider-container {
-    position: relative;
-}
-
-.value-display {
-    position: absolute;
-    top: -25px;
-    background: #2980b9;
-    color: #ecf0f1;
-    border-radius: 3px;
-    font-size: 14px;
-    width: 25px;
-    height: 17px;
-    text-align: center;
-}
-
-#brightnessValue,#contrastValue,#saturationValue{
-    right: 100px;
-}
-
-#blurValue,#inversionValue{
-    left: 0px;
-}
-
-.toolbar-input {
-    width: 100%;
-    height: 6px;
-    background: #bdc3c7;
-    border-radius: 5px;
-    outline: none;
-    transition: all 0.3s;
-}
-
-.toolbar-input::-webkit-slider-thumb {
-    -webkit-appearance: none;
-    appearance: none;
-    width: 15px;
-    height: 15px;
-    border-radius: 50%;
-    background: #2980b9;
-    cursor: pointer;
-    transition: all 0.3s;
-}
-
-.toolbar-input::-webkit-slider-thumb:hover {
-    background: #3498db;
 }
 
 .custom-file-upload {
@@ -106,7 +37,6 @@
     background: #2980b9;
     color: #ecf0f1;
     transition: all 0.3s, transform 0.2s;
-    text-align: center;
 }
 
 .custom-file-upload:hover {
@@ -116,6 +46,11 @@
 
 .custom-file-upload:active {
     transform: scale(0.98);
+}
+
+.controls {
+    display: flex;
+    justify-content: space-between;
 }
 
 button {
@@ -137,6 +72,58 @@ button:active {
     transform: scale(0.98);
 }
 
+.toolbarItems {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.opts {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.labelAll {
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.displayValue {
+    position: relative;
+    background: #2980b9;
+    border-radius: 3px;
+    font-size: 14px;
+    width: 29px;
+    height: 18px;
+    text-align: center;
+    margin: 6px 0;
+}
+
+.opts input {
+    background: #bdc3c7;
+    border-radius: 5px;
+    outline: none;
+    transition: all 0.3s;
+}
+
+#brightnessValue,
+#contrastValue,
+#saturationValue {
+    left: 100px;
+}
+
+
+#blurValue,
+#inversionValue {
+    left: 0px;
+}
+
+.save-btn-container {
+    text-align: center;
+    margin-top: 10px;
+}
+
 .imageArea {
     flex-grow: 1;
     background: #ecf0f1;
@@ -144,6 +131,7 @@ button:active {
     display: flex;
     justify-content: center;
     align-items: center;
+    height: 100vh;
 }
 
 canvas {
@@ -178,12 +166,6 @@ canvas {
     text-align: center;
 }
 
-#formatSelect {
-    padding: 8px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-}
-
 .modal_menu {
     display: flex;
     align-items: center;
@@ -194,38 +176,44 @@ canvas {
     cursor: pointer;
 }
 
-@media (max-width: 768px) {
+#formatSelect {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+@media (max-width: 800px) {
     .editor {
         flex-direction: column;
+        height: 35rem;
     }
 
     .toolbar {
         width: 100%;
         flex-direction: row;
-        flex-wrap: wrap;
-        gap: 10px;
-        justify-content: space-around;
-        padding: 10px;
+        align-items: center;
     }
 
-    .toolbar_item {
-        flex: 1 1 45%;
-        margin-bottom: 10px;
+    .toolbarItems {
+        flex-direction: row;
     }
 
-    .toolbar_item.slider-group {
-        flex: 1 1 100%;
+    .displayValue {
+        display: none;
     }
 
-    .imageArea {
-        padding: 10px;
+    .controls {
+        gap: 20px;
     }
 
-    button {
-        padding: 10px 40px;
+    .custom-file-upload {
+        width: 11rem;
     }
 }
 
-#brightnessValue {
-    right: 100px;
+@media (max-width: 400px){
+    .custom-file-upload {
+        width: 9rem;
+        padding:6px 0;
+    }
 }

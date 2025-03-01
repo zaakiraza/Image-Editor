@@ -21,38 +21,42 @@
                 <button id="cropBtn">Crop</button>
                 <button id="doneBtn" style="display: none;">Done</button>
             </div>
-            <div class="toolbar_item slider-group">
-
-                <label class="toolbar-label" for="brightness">Brightness</label>
-                <div class="slider-container">
-                    <div class="value-display" id="brightnessValue">100</div>
-                    <input class="toolbar-input" type="range" id="brightness" min="0" max="200" value="100" />
+            <div class="toolbarItems">
+                <div class="opts">
+                    <label class="labelAll" for="brightness">Brightness</label>
+                    <div class="displayValue" id="brightnessValue">100</div>
+                    <input type="range" id="brightness" min="0" max="200" value="100">
                 </div>
-
-                <label class="toolbar-label" for="contrast">Contrast</label>
-                <div class="slider-container">
-                    <div class="value-display" id="contrastValue">100</div>
-                    <input class="toolbar-input" type="range" id="contrast" min="0" max="200" value="100" />
+                <div class="opts">
+                    <label class="labelAll" for="contrast">Contrast</label>
+                    <div class="displayValue" id="contrastValue">100</div>
+                    <input type="range" id="contrast" min="0" max="200" value="100">
                 </div>
-
-                <label class="toolbar-label" for="saturation">Saturation</label>
-                <div class="slider-container">
-                    <div class="value-display" id="saturationValue">100</div>
-                    <input class="toolbar-input" type="range" id="saturation" min="0" max="200" value="100" />
+                <div class="opts">
+                    <label class="labelAll" for="saturation">Saturation</label>
+                    <div class="displayValue" id="saturationValue">100</div>
+                    <input type="range" id="saturation" min="0" max="200" value="100">
                 </div>
-
-                <label class="toolbar-label" for="blur">Blur</label>
-                <div class="slider-container">
-                    <div class="value-display" id="blurValue">0</div>
-                    <input class="toolbar-input" type="range" id="blur" min="0" max="10" value="0" />
+                <div class="opts">
+                    <label class="labelAll" for="blur">Blur</label>
+                    <div class="displayValue" id="blurValue">0</div>
+                    <input type="range" id="blur" min="0" max="10" value="0">
                 </div>
-
-                <label class="toolbar-label" for="inversion">Inversion</label>
-                <div class="slider-container">
-                    <div class="value-display" id="inversionValue">0</div>
-                    <input class="toolbar-input" type="range" id="inversion" min="0" max="200" value="0" />
+                <div class="opts">
+                    <label class="labelAll" for="inversion">Inversion</label>
+                    <div class="displayValue" id="inversionValue">0</div>
+                    <input type="range" id="inversion" min="0" max="200" value="0">
                 </div>
-
+                <div class="opts">
+                    <label class="labelAll" for="rotate">Rotate</label>
+                    <div class="displayValue" id="rotateValue">0</div>
+                    <input type="range" id="rotate" min="0" max="360" value="0">
+                </div>
+                <div class="opts">
+                    <label class="labelAll" for="zoom">Zoom</label>
+                    <div class="displayValue" id="zoomValue">1</div>
+                    <input type="range" id="zoom" min="1" max="3" value="1">
+                </div>
             </div>
             <div class="toolbar_item save-btn-container">
                 <button id="saveBtn">Save</button>
@@ -62,6 +66,7 @@
             <canvas id="canvas"></canvas>
             <img id="cropImageElement" style="display:none;" />
         </div>
+
     </div>
 
     <div id="saveModal" class="modal">
